@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 70%;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border: 2px solid #333;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            font-size: 16px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .buttons {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .upper {
+            background-color: #007bff;
+        }
+
+        .lower {
+            background-color: #28a745;
+        }
+
+        .count {
+            background-color: #6c757d;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Text Converter</h2>
+
+    <textarea id="textInput" placeholder="Enter your text here..."></textarea>
+
+    <div class="buttons">
+        <button class="upper" onclick="convertUpper()">Convert to Uppercase</button>
+        <button class="lower" onclick="convertLower()">Convert to Lowercase</button>
+        <button class="count" onclick="countWords()">Count Words</button>
+    </div>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function convertUpper() {
+        let text = document.getElementById("textInput").value;
+        document.getElementById("textInput").value = text.toUpperCase();
+        document.getElementById("result").innerText = "";
+    }
+
+    function convertLower() {
+        let text = document.getElementById("textInput").value;
+        document.getElementById("textInput").value = text.toLowerCase();
+        document.getElementById("result").innerText = "";
+    }
+
+    function countWords() {
+        let text = document.getElementById("textInput").value.trim();
+        let words = text === "" ? 0 : text.split(/\s+/).length;
+        document.getElementById("result").innerText = "Word Count: " + words;
+    }
+</script>
+
+</body>
+</html>
